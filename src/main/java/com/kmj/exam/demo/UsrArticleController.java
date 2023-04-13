@@ -7,7 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.kmj.exam.demo.vo.Article;
+import com.khj.exam.demo.vo.Article;
 
 @Controller
 public class UsrArticleController {
@@ -80,6 +80,18 @@ public class UsrArticleController {
 	@ResponseBody
 	public List<Article> getArticles() {
 		return articles;
+	}
+	
+	@RequestMapping("/usr/article/getArticle")
+	@ResponseBody
+	public Object getArticleAction(int id) {
+		Article article = getArticle(id);
+		
+		if ( article == null ) {
+			return id + "번 게시물이 존재하지 않습니다.";
+		}
+		
+		return article;
 	}
 	
 	@RequestMapping("/usr/article/doDelete")
