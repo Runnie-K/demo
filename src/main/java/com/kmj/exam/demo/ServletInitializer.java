@@ -1,4 +1,4 @@
-package com.kmj.example.demo;
+package com.kmj.exam.demo;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
