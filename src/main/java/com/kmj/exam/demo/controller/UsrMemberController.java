@@ -7,16 +7,18 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.kmj.exam.demo.service.MemberService;
 
 @Controller
-public class UsrHomeController {
-
+public class UsrMemberController {
 	private MemberService memberService;
 
-	@RequestMapping("/usr/member/dojoin")
+	public UsrMemberController(MemberService memberService) {
+		this.memberService = memberService;
+	}
+
+	@RequestMapping("/usr/member/doJoin")
 	@ResponseBody
-	public String dojoin(String loginId, String loginPw, String name, String nickname, String cellphoneNo, String email) {
-
+	public String doJoin(String loginId, String loginPw, String name, String nickname, String cellphoneNo,
+			String email) {
 		memberService.join(loginId, loginPw, name, nickname, cellphoneNo, email);
-
-		return "안녕하세요";
+		return "성공!";
 	}
 }
