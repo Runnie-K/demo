@@ -24,33 +24,37 @@ public class UsrMemberController {
 			String email) {
 
 		if (Ut.empty(loginId)) {
-			return "아이디를 입력해주세요.";
+			return "loginId(을)를 입력해주세요.";
 		}
 
 		if (Ut.empty(loginPw)) {
-			return "비밀번호를 입력해주세요.";
+			return "loginPw(을)를 입력해주세요.";
 		}
 
 		if (Ut.empty(name)) {
-			return "이름을 입력해주세요.";
+			return "name(을)를 입력해주세요.";
 		}
 
 		if (Ut.empty(nickname)) {
-			return "닉네임을 입력해주세요.";
+			return "nickname(을)를 입력해주세요.";
 		}
 
 		if (Ut.empty(cellphoneNo)) {
-			return "전화번호를 입력해주세요.";
+			return "cellphoneNo(을)를 입력해주세요.";
 		}
 
 		if (Ut.empty(email)) {
-			return "이메일을 입력해주세요.";
+			return "email(을)를 입력해주세요.";
 		}
 
 		int id = memberService.join(loginId, loginPw, name, nickname, cellphoneNo, email);
 
 		if (id == -1) {
 			return "해당 로그인 아이디는 이미 사용중입니다.";
+		}
+
+		if (id == -2) {
+			return "해당 이름과 이메일은 이미 사용중입니다.";
 		}
 
 		Member member = memberService.getMemberById(id);

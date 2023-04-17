@@ -22,7 +22,8 @@ public interface MemberRepository {
 			cellphoneNo = #{cellphoneNo},
 			email = #{email}
 			""")
-	void join(@Param("loginId") String loginId, @Param("loginPw") String loginPw, @Param("name") String name, @Param("nickname") String nickname, @Param("cellphoneNo") String cellphoneNo, @Param("email") String email);
+	void join(@Param("loginId") String loginId, @Param("loginPw") String loginPw, @Param("name") String name,
+			@Param("nickname") String nickname, @Param("cellphoneNo") String cellphoneNo, @Param("email") String email);
 
 	@Select("""
 			SELECT *
@@ -34,7 +35,7 @@ public interface MemberRepository {
 
 	@Select("SELECT LAST_INSERT_ID()")
 	int getLastInsertId();
-	
+
 	@Select("""
 			SELECT *
 			FROM `member` AS M
@@ -48,4 +49,12 @@ public interface MemberRepository {
 			WHERE M.loginId = #{loginId}
 			""")
 	Member getMemberByLoginId(@Param("loginId") String loginId);
+
+	@Select("""
+			SELECT *
+			FROM `member` AS M
+			WHERE M.name = #{name}
+			AND M.email = #{email}
+			""")
+	Member getMemberByNameAndEmail(@Param("name") String name, @Param("email") String email);
 }
