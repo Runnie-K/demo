@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.kmj.exam.demo.service.MemberService;
+import com.kmj.exam.demo.util.Ut;
 import com.kmj.exam.demo.vo.Member;
 
 @Controller
@@ -22,27 +23,27 @@ public class UsrMemberController {
 	public Object doJoin(String loginId, String loginPw, String name, String nickname, String cellphoneNo,
 			String email) {
 
-		if (loginId == null || loginId.trim().length() == 0) {
+		if (Ut.empty(loginId)) {
 			return "아이디를 입력해주세요.";
 		}
 
-		if (loginPw == null || loginPw.trim().length() == 0) {
+		if (Ut.empty(loginPw)) {
 			return "비밀번호를 입력해주세요.";
 		}
 
-		if (name == null || name.trim().length() == 0) {
+		if (Ut.empty(name)) {
 			return "이름을 입력해주세요.";
 		}
 
-		if (nickname == null || nickname.trim().length() == 0) {
+		if (Ut.empty(nickname)) {
 			return "닉네임을 입력해주세요.";
 		}
 
-		if (cellphoneNo == null || cellphoneNo.trim().length() == 0) {
+		if (Ut.empty(cellphoneNo)) {
 			return "전화번호를 입력해주세요.";
 		}
 
-		if (email == null || email.trim().length() == 0) {
+		if (Ut.empty(email)) {
 			return "이메일을 입력해주세요.";
 		}
 
