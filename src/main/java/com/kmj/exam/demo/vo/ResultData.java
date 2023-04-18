@@ -5,24 +5,30 @@ import lombok.Getter;
 public class ResultData {
 	@Getter
 	private String resultCode;
-	
+
 	@Getter
 	private String msg;
-	
+
 	@Getter
 	private Object data1;
 
-	private ResultData() {}
-	
+	private ResultData() {
+	}
+
+	public static ResultData from(String resultCode, String msg) {
+		// TODO Auto-generated method stub
+		return from(resultCode, msg, null);
+	}
+
 	public static ResultData from(String resulrCode, String msg, Object data1) {
 		ResultData rd = new ResultData();
 		rd.resultCode = resulrCode;
 		rd.msg = msg;
 		rd.data1 = data1;
-		
+
 		return rd;
 	}
-	
+
 	public boolean isSuccess() {
 		return resultCode.startsWith("S-");
 	}
@@ -30,4 +36,5 @@ public class ResultData {
 	public boolean isFail() {
 		return isSuccess() == false;
 	}
+
 }
