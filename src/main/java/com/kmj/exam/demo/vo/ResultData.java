@@ -29,6 +29,12 @@ public class ResultData {
 		return rd;
 	}
 
+	public static ResultData newData(ResultData joinRd, Object newData) {
+
+		return from(joinRd.getResultCode(), joinRd.getMsg(), newData);
+		
+	}
+
 	public boolean isSuccess() {
 		return resultCode.startsWith("S-");
 	}
