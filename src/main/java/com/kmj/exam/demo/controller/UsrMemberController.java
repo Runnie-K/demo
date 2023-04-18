@@ -79,7 +79,7 @@ public class UsrMemberController {
 
 		httpSession.removeAttribute("loginedMemberId");
 
-		return ResultData.from("S-2", "로그아웃되었습니다.");
+		return ResultData.from("S-2", "로그아웃 되었습니다.");
 	}
 
 	@RequestMapping("/usr/member/doLogin")
