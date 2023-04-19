@@ -8,3 +8,4 @@ spring:
     password: sbs123414
 mybatis:
   type-aliases-package: com.kmj.exam.demo.vo
+  
