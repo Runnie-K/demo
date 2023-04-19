@@ -5,21 +5,19 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 public class Member {
-	
 	private int id;
 	private String regDate;
 	private String updateDate;
 	private String loginId;
-	private int authLevel;
 	private String loginPw;
+	private int authLevel;
 	private String name;
 	private String nickname;
 	private String cellphoneNo;
 	private String email;
 	private boolean delStatus;
 	private String delDate;
-	
 }
