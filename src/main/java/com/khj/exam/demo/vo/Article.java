@@ -1,4 +1,4 @@
-package com.kmj.exam.demo.vo;
+package com.khj.exam.demo.vo;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -16,4 +16,3 @@ public class Article {
 	private String body;
 
 }
-

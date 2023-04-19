@@ -1,13 +1,13 @@
-package com.kmj.exam.demo.service;
+package com.khj.exam.demo.service;
 
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.kmj.exam.demo.repository.MemberRepository;
-import com.kmj.exam.demo.util.Ut;
-import com.kmj.exam.demo.vo.Member;
-import com.kmj.exam.demo.vo.ResultData;
+import com.khj.exam.demo.repository.MemberRepository;
+import com.khj.exam.demo.utill.Ut;
+import com.khj.exam.demo.vo.Member;
+import com.khj.exam.demo.vo.ResultData;
 
 @Service
 public class MemberService {
@@ -17,9 +17,7 @@ public class MemberService {
 		this.memberRepository = memberRepository;
 	}
 
-	public ResultData<Integer> join(String loginId, String loginPw, String name, String nickname, String cellphoneNo,
-			String email) {
-
+	public ResultData<Integer> join(String loginId, String loginPw, String name, String nickname, String cellphoneNo, String email) {
 		// 로그인아이디 중복체크
 		Member oldMember = getMemberByLoginId(loginId);
 

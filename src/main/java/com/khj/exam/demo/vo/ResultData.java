@@ -1,4 +1,4 @@
-package com.kmj.exam.demo.vo;
+package com.khj.exam.demo.vo;
 
 import lombok.Getter;
 
@@ -42,7 +42,7 @@ public class ResultData<DT> {
 		return isSuccess() == false;
 	}
 
-
+	
 
 	
 
