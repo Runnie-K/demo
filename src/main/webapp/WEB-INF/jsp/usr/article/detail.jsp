@@ -8,30 +8,30 @@
 
 <section class="mt-5">
 	<table border="1">
-		<tbody>
+		<tbody style="text-align:left;">
 			<tr>
-				<th>글 번호</th>
-				<td>${article.id }</td>
+				<th>글 번호 </th>
+				<td>&nbsp;${article.id }</td>
 			</tr>
 			<tr>
-				<th>작성날자</th>
-				<td>${article.regDate.substring(2,16) }</td>
+				<th>작성날자 </th>
+				<td>&nbsp;${article.regDate.substring(2,16) }</td>
 			</tr>
 			<tr>
-				<th>수정날자</th>
-				<td>${article.updateDate.substring(2,16) }</td>
+				<th>수정날자 </th>
+				<td>&nbsp;${article.updateDate.substring(2,16) }</td>
 			</tr>
 			<tr>
-				<th>작성자</th>
-				<td>${article.memberId }</td>
+				<th>작성자 </th>
+				<td>&nbsp;${article.memberId }</td>
 			</tr>
 			<tr>
-				<th>제목</th>
-				<td>${article.title }</td>
+				<th>제목 </th>
+				<td>&nbsp;${article.title }</td>
 			</tr>
 			<tr>
-				<th>내용</th>
-				<td>${article.body }</td>
+				<th>내용 </th>
+				<td>&nbsp;${article.body }</td>
 			</tr>
 		</tbody>
 	</table>
