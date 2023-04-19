@@ -42,7 +42,7 @@ public class ResultData<DT> {
 		return isSuccess() == false;
 	}
 
-	
+
 
 	
 
