@@ -12,16 +12,12 @@ import com.khj.exam.demo.vo.Member;
 import com.khj.exam.demo.vo.ResultData;
 import com.khj.exam.demo.vo.Rq;
 
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpSession;
-
 @Controller
 public class UsrMemberController {
 	private MemberService memberService;
-	
 	private Rq rq;
 	
-	public UsrMemberController(MemberService memberService ,Rq rq) {
+	public UsrMemberController(MemberService memberService, Rq rq) {
 		this.memberService = memberService;
 		this.rq = rq;
 	}
@@ -29,7 +25,6 @@ public class UsrMemberController {
 	@RequestMapping("/usr/member/doJoin")
 	@ResponseBody
 	public ResultData<Member> doJoin(String loginId, String loginPw, String name, String nickname, String cellphoneNo, String email) {
-			
 		if ( Ut.empty(loginId) ) {
 			return ResultData.from("F-1", "loginId(을)를 입력해주세요.");
 		}
@@ -70,8 +65,7 @@ public class UsrMemberController {
 	
 	@RequestMapping("/usr/member/doLogout")
 	@ResponseBody
-	public String doLogout(HttpServletRequest req) {
-		
+	public String doLogout() {
 		if ( !rq.isLogined() ) {
 			return rq.jsHistoryBack("이미 로그아웃 상태입니다.");
 		}
@@ -88,8 +82,7 @@ public class UsrMemberController {
 	
 	@RequestMapping("/usr/member/doLogin")
 	@ResponseBody
-	public String doLogin(HttpServletRequest req, String loginId, String loginPw) {
-		
+	public String doLogin(String loginId, String loginPw) {
 		if ( rq.isLogined() ) {
 			return rq.jsHistoryBack("이미 로그인되었습니다.");
 		}
