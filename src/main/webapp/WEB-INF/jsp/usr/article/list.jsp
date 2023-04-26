@@ -19,7 +19,7 @@
 			<option value="body">내용</option>
 			<option value="title,body">제목,내용</option>  		
   		</select>
-  		<input name="searchKeyword" type="text" class="ml-2 w-72 input input-bordered" placeholder="검색어를 입력해주세요." maxlength="20" value="${param.searchKeyword}"/>
+  		<input name="searchKeyword" type="text" class="ml-2 w-72 input input-bordered" placeholder="검색어" maxlength="20" value="${param.searchKeyword}"/>
   		<button type="submit" class="ml-2 btn btn-primary">검색</button>
   	</form>
   </div>
@@ -46,9 +46,9 @@
         <tbody>
           <c:forEach var="article" items="${articles}">
             <tr class="hover">
-              <td>${article.id}</td>
-              <td>${article.regDate.substring(2, 16)}</td>
-              <td>${article.updateDate.substring(2, 16)}</td>
+              <th>${article.id}</th>
+              <td>${article.forPrintintType1RegDate()}</td>
+              <td>${article.forPrintintType1UpdateDate()}</td>
               <td>${article.extra__writerName}</td>
               <td>
                 <a class="btn-text-link block w-full truncate" href="../article/detail?id=${article.id}">${article.title}</a>
