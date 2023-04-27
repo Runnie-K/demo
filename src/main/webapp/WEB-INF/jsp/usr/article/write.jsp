@@ -15,16 +15,13 @@
         <tbody>
         <tr>
             <th>게시판</th>
-            <!-- <td>
-            	<label>공지게시판<input type="radio" name="boardId" value="1" /></label>
-            	<label>자유게시판<input type="radio" name="boardId" value="2" /></label>
-            </td> -->
-            <select name="boardId" class="select select-boarded max-w-x">
-            	<option selected disabled>게시판을 선택해주세요</option>
-            	<option value="1">자유게시판</option>
-            	<option value="2">공지게시판</option>
+            <td>
+            <select name="boardId" class="select select-bordered max-w-x">
+            	<option selected disabled>게시판을 선택해주세요.</option>
+            	<option value="1">공지</option>
+            	<option value="2">자유</option>
             </select>
-            
+            </td>
           </tr>
           <tr>
             <th>작성자</th>
@@ -39,11 +36,11 @@
           <tr>
             <th>내용</th>
             <td>
-              <textarea required="required" type="text" class="w-full textarea textarea-bordered" name="body" placeholder="내용" >${article.body}</textarea>
+              <textarea required="required" class="w-full textarea textarea-bordered" name="body" placeholder="내용" >${article.body}</textarea>
             </td>
           </tr>
           <tr>
-            <th>수정</th>
+            <th>작성</th>
             <td>
               <input type="submit" class="btn btn-primary" value="작성"/>
               <button type="button" class="btn btn-outline btn-primary" onclick="history.back();">뒤로가기</button>
@@ -54,4 +51,5 @@
 	</form>
   </div>
 </section>
+
 <%@include file="../common/foot.jspf" %>
