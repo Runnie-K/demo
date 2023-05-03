@@ -2,7 +2,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="pageTitle" value="회원가입"/>
 <%@include file="../common/head.jspf" %>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
+
 <script>
 	let MemberJoin__submitDone = false;
 	let validLoginId = "";
@@ -80,6 +82,10 @@
 			return;
 		}
 		
+		form.loginPw.value = sha256(form.loginPwInput.value);
+		form.loginPwInput.value = '';
+		form.loginPwConfirm.value = '';
+		
 		MemberJoin__submitDone = true;
 		form.submit();		
 	}
@@ -102,17 +108,16 @@
 			isAjax : 'Y',
 			loginId : form.loginId.value
 		}, function(data) {
-			var $message = $(form.loginId).next();
+			var $message  = $(form.loginId).next();
 			
-			if(data.resultCode.substr(0,2) == "S-"){
+			if ( data.resultCode.substr(0, 2) == "S-") {
 				$message.empty().append('<div class="mt-2 text-green-500">' + data.msg + '</div>')
 				validLoginId = data.data1;
-			}else {
+			} else {
 				$message.empty().append('<div class="mt-2 text-red-500">' + data.msg + '</div>')
 				validLoginId = '';
 			}
 			
-			$('.loginId-msg').html('<div class="mt-2">' + data.msg + '</div>');
 			if (data.success) {
 				validLoginId = data.data1;
 			} else {
@@ -121,14 +126,14 @@
 		}, 'json');
 	}
 	
-	const checkLoginIdDupDebounced = _.debounce(checkLoginIdDup,500);
-	
+	const checkLoginIdDupDebounced = _.debounce(checkLoginIdDup, 300);
 </script>
 
 <section class="mt-5">
   <div class="container mx-auto px-3">
 	<form class="table-box-type-1" method="POST" action="../member/doJoin" onsubmit="MemberJoin__submit(this); return false;">
 	  <input type="hidden" name="afterJoinUri" value="${param.afterJoinUri}"/>
+	  <input type="hidden" name="loginPw"/>
 
       <table>
       <colgroup>
@@ -145,7 +150,7 @@
           <tr>
             <th>새 비밀번호</th>
             <td>
-            <input type="password" class="input input-bordered" name="loginPw" placeholder="비밀번호를 입력해주세요."/>
+            <input type="password" class="input input-bordered" name="loginPwInput" placeholder="비밀번호를 입력해주세요."/>
             </td>
           </tr>
           <tr>
